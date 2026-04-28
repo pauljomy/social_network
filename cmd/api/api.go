@@ -7,16 +7,26 @@ import (
 
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
+	"github.com/pauljomy/social/internal/store"
 )
 
 type application struct {
 	logger *slog.Logger
 	config config
+	posts  store.PostStorer
 }
 
 type config struct {
 	addr string
 	env  string
+	db   dbConfig
+}
+
+type dbConfig struct {
+	dsn          string
+	maxOpenConns int
+	maxIdleConns int
+	maxIdleTime  string
 }
 
 func (app *application) mount() http.Handler {

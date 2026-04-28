@@ -7,14 +7,14 @@ import (
 )
 
 type PostStorer interface {
-	Create(ctx context.Context, post *models.Post) error
+	Create(context.Context, *models.Post) error
 }
 
 type CommentStorer interface {
-	Create(ctx context.Context, comment *models.Comment) error
+	Create(context.Context, *models.Comment) error
 }
 
 type UserStorer interface {
-	Create(ctx context.Context) error
-	FindByID(ctx context.Context, id string) (*models.User, error)
+	Create(context.Context, *models.User) error
+	FindByID(context.Context, string) (*models.User, error)
 }
