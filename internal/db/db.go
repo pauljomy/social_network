@@ -7,7 +7,7 @@ import (
 	"github.com/jackc/pgx/v5/pgxpool"
 )
 
-func openDB(dsn string, maxIdleConns, maxOpenConns int, maxIdleTime string) (*pgxpool.Pool, error) {
+func OpenDB(dsn string, maxIdleConns, maxOpenConns int, maxIdleTime string) (*pgxpool.Pool, error) {
 
 	duration, err := time.ParseDuration(maxIdleTime)
 	if err != nil {
